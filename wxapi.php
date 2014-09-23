@@ -129,6 +129,19 @@ class wechatCallbackapiTest{
         $resultStr = $this->responseText($postObj, $contentStr);
         return $resultStr;
     }
+
+    public function responseText($object, $content, $flag=0){
+        $textTpl = "<xml>
+            <tousername><!--[CDATA[%s]]--></tousername>
+            <fromusername><!--[CDATA[%s]]--></fromusername>
+            <createtime>%s</createtime>
+            <msgtype><!--[CDATA[text]]--></msgtype>
+            <content><!--[CDATA[%s]]--></content>
+            <funcflag>%d</funcflag>
+            </xml>";
+        $resultStr = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $flag);
+        return $resultStr;
+    }
 }
 
 
