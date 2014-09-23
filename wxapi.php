@@ -44,7 +44,6 @@ class wechatCallbackapiTest{
                     break;
             }
             echo $resultStr;
-            
         }else {
             echo "";
             exit;
