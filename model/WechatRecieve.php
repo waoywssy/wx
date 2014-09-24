@@ -1,6 +1,6 @@
 <?php
 class WechatRecieve{
-	private $type_arr = array(
+	public $type_arr = array(
         'text' , 'image' ,'voice' , 'video' , 'location' , 'link'
     );
     public function valid(){
