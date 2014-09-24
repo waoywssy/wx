@@ -104,8 +104,6 @@ class wechatCallbackapiTest{
                     $contentStr = "你TM说的什么玩意儿，我听不懂！";
                     break;
             }
-                
-
             $msgType = "text";
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             return $resultStr;
@@ -132,12 +130,12 @@ class wechatCallbackapiTest{
 
     public function responseText($object, $content, $flag=0){
         $textTpl = "<xml>
-            <tousername><!--[CDATA[%s]]--></tousername>
-            <fromusername><!--[CDATA[%s]]--></fromusername>
-            <createtime>%s</createtime>
-            <msgtype><!--[CDATA[text]]--></msgtype>
-            <content><!--[CDATA[%s]]--></content>
-            <funcflag>%d</funcflag>
+            <ToUserName><!--[CDATA[%s]]--></ToUserName>
+            <FromUserName><!--[CDATA[%s]]--></FromUserName>
+            <CreateTime>%s</CreateTime>
+            <MsgType><!--[CDATA[text]]--></MsgType>
+            <Content><!--[CDATA[%s]]--></Content>
+            <FuncFlag>%d</FuncFlag>
             </xml>";
         $resultStr = sprintf($textTpl, $object->FromUserName, $object->ToUserName, time(), $content, $flag);
         return $resultStr;
