@@ -53,3 +53,17 @@ function get_access_token(){
     setcookie('wx_access_token',$info->access_token,time()+intval($info->expires_in));
     return $info->access_token;
 }
+
+function get_user_data($openid){
+    $access_token = get_access_token();
+    
+    $wx_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
+    $curl = curl_init();
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($curl,CURLOPT_URL,$wx_url);
+    curl_setopt($curl,CURLOPT_POST,1);
+    curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
+    $result = curl_exec($curl);
+    $info = json_decode($result);
+    return $result;
+}
