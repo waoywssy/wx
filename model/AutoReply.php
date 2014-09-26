@@ -1,5 +1,5 @@
 <?php
-class WechatRecieve{
+class AutoReply{
 	public $type_arr = array(
         'text' , 'image' ,'voice' , 'video' , 'location' , 'link'
     );

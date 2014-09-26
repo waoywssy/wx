@@ -4,8 +4,7 @@
  */
 require_once('inc/global.php');
 access_control_header();
-require_once(MODEL_PATH."/WechatRecieve.php");
-$wechatObj = new WechatRecieve();
+$wechatObj = new AutoReply();
 //$wechatObj->valid();
 $wechatObj->responseMsg();
 ?>
