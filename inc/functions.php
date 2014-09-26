@@ -65,5 +65,6 @@ function get_user_data($openid){
     curl_setopt($curl,CURLOPT_RETURNTRANSFER,1);
     $result = curl_exec($curl);
     $info = json_decode($result);
-    return $result;
+    $img = "<img src='".$info->headimgurl."'/>";
+    return $img;
 }

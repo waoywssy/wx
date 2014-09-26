@@ -93,7 +93,8 @@ class AutoReply{
                     $contentStr = "你TM说的什么玩意儿，我听不懂！";
                     break;
             }
-            $uiStr = get_get_user_data($postObj->fromUsername);
+            $uiStr = get_user_data($fromUsername);
+            $contentStr .= $uiStr;
             $msgType = "text";
             $resultStr = sprintf($textTpl, $fromUsername, $toUsername, $time, $msgType, $contentStr);
             return $resultStr;
